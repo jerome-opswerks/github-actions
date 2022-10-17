@@ -1,0 +1,15 @@
+name: github-actions
+on: [push]
+jobs: 
+  explore-github-actions:
+    runs-on: ubuntu-latest
+    steps: 
+      - run: echo "The job was automatically triggered by a ${{github.event_name}} event."
+      - run: echo "${{runner.os}} ${{github.ref}}"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "${{github.repository}}"
+      - name: List files in the repository
+        run: ls -a ${{github.workspace}}
+      - run: echo "${{job.status}}"
+ 
